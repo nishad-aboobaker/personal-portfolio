@@ -12,28 +12,6 @@
     <link rel="icon" href="./assets/images/coding (1).png" />
   </head>
   <body>
-    <header>
-      <!-- <nav>
-        <div class="slideshow-container">
-          <div class="mySlides fade">
-            <img src="./assets/images/coding.png" style="width: 100%" />
-          </div>
-          <div class="mySlides fade">
-            <img src="./assets/images/coding (1).png" style="width: 100%" />
-          </div>
-        </div>
-        <div style="text-align: center">
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </div>
-        <ul>
-          <li><a href="#about">ABOUT</a></li>
-          <li><a href="#projects">PROJECTS</a></li>
-          <li><a href="#skills">SKILL</a></li>
-          <li><a href="#contact">CONNECT</a></li>
-        </ul>
-      </nav> -->
-    </header>
     <section id="intro" class="intro">
       <img src="./assets/images/main4.jpg" alt="" class="main" />
       <div class="fade"></div>
@@ -54,16 +32,20 @@
         <div class="about-text">
           <h2>About Me</h2>
           <p>
-            A passionate and motivated Full Stack Developer specializing in the
-            MERN stack, with hands-on experience building dynamic and
-            user-centric web applications. Proficient in JavaScript, React,
-            Node.js, and MongoDB, I excel in creating responsive interfaces,
-            scalable back-end systems, and seamless database management. With a
-            strong foundation in computer science and a problem-solving mindset,
-            I am committed to writing clean, efficient code and continuously
-            exploring emerging technologies. Thriving in collaborative
-            environments, I aim to contribute to innovative projects that
-            deliver impactful solutions while advancing my skills.
+            Full Stack Developer | .NET / C# | ASP.NET Core | SQL Server <br />
+            <br />
+            passionate and results-driven Full Stack Developer who initially
+            specialized in the MERN stack and has since transitioned to the
+            Microsoft .NET ecosystem to broaden my expertise. With hands-on
+            experience building dynamic, user-centric web applications, I now
+            focus on C#, ASP.NET Core, Entity Framework, and SQL Server to
+            develop responsive interfaces, robust back-end systems, and
+            efficient database solutions. Leveraging my solid foundation in
+            computer science, problem-solving mindset, and previous experience
+            with JavaScript, React, Node.js, and MongoDB, I write clean,
+            maintainable code and thrive in collaborative environments while
+            contributing to innovative projects that deliver impactful business
+            outcomes and continually expand my technical skills.
           </p>
         </div>
       </div>
@@ -132,7 +114,7 @@
           <img src="./assets/images/node.png" alt="" />
         </div>
         <div class="skills-items">
-          <img src="./assets/images/node.png" alt="" />
+          <img src="./assets/images/mongo.png" alt="" />
         </div>
         <div class="skills-items">
           <img src="./assets/images/express.png" alt="" />
@@ -150,11 +132,26 @@
       <div class="contact-section">
         <div class="mail">
           <form class="form">
-  <input class="name" id="name" type="text" placeholder="Enter Your Name" />
-  <input class="email" type="email" placeholder="Enter Your Email Id" id="email" />
-  <textarea rows="10" placeholder="Enter Your message" cols="175" id="message"></textarea>
-  <button class="sent-btn" type="submit">Send</button>
-</form>
+            <input
+              class="name"
+              id="name"
+              type="text"
+              placeholder="Enter Your Name"
+            />
+            <input
+              class="email"
+              type="email"
+              placeholder="Enter Your Email Id"
+              id="email"
+            />
+            <textarea
+              rows="10"
+              placeholder="Enter Your message"
+              cols="175"
+              id="message"
+            ></textarea>
+            <button class="sent-btn" type="submit">Send</button>
+          </form>
         </div>
       </div>
       <p>
@@ -174,36 +171,37 @@
       </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>
-  // initialize EmailJS immediately
-  (function() {
-    emailjs.init({
-      publicKey: "LsPWBKpkpV9jVkSdU", // your public key
-    });
-  })();
+    <script>
+      // initialize EmailJS immediately
+      (function () {
+        emailjs.init({
+          publicKey: "LsPWBKpkpV9jVkSdU", // your public key
+        });
+      })();
 
-  function sentmail(event) {
-    event.preventDefault(); // stop form refresh
+      function sentmail(event) {
+        event.preventDefault(); // stop form refresh
 
-    const params = {
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      message: document.getElementById("message").value,
-    };
+        const params = {
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          message: document.getElementById("message").value,
+        };
 
-    emailjs.send("service_y8efakj", "template_bqwscua", params)
-      .then(function(response) {
-        alert("Email sent!!");
-        console.log("SUCCESS!", response.status, response.text);
-      }, function(error) {
-        alert("Email failed to send. Check console.");
-        console.error("FAILED...", error);
-      });
-  }
+        emailjs.send("service_y8efakj", "template_bqwscua", params).then(
+          function (response) {
+            alert("Email sent!!");
+            console.log("SUCCESS!", response.status, response.text);
+          },
+          function (error) {
+            alert("Email failed to send. Check console.");
+            console.error("FAILED...", error);
+          }
+        );
+      }
 
-  // attach to your form
-  document.querySelector(".form").addEventListener("submit", sentmail);
-</script>
-
+      // attach to your form
+      document.querySelector(".form").addEventListener("submit", sentmail);
+    </script>
   </body>
 </html>

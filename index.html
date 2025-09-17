@@ -170,38 +170,6 @@
         /></a>
       </div>
     </section>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script>
-      // initialize EmailJS immediately
-      (function () {
-        emailjs.init({
-          publicKey: "LsPWBKpkpV9jVkSdU", // your public key
-        });
-      })();
-
-      function sentmail(event) {
-        event.preventDefault(); // stop form refresh
-
-        const params = {
-          name: document.getElementById("name").value,
-          email: document.getElementById("email").value,
-          message: document.getElementById("message").value,
-        };
-
-        emailjs.send("service_y8efakj", "template_bqwscua", params).then(
-          function (response) {
-            alert("Email sent!!");
-            console.log("SUCCESS!", response.status, response.text);
-          },
-          function (error) {
-            alert("Email failed to send. Check console.");
-            console.error("FAILED...", error);
-          }
-        );
-      }
-
-      // attach to your form
-      document.querySelector(".form").addEventListener("submit", sentmail);
-    </script>
+     
   </body>
 </html>

@@ -14,7 +14,7 @@
   --color-primary-light: #818cf8;
   --color-secondary: #ec4899;
   --color-accent: #f59e0b;
-  
+
   /* Neutral Colors */
   --color-bg: #0f172a;
   --color-bg-light: #1e293b;
@@ -22,16 +22,16 @@
   --color-text: #e2e8f0;
   --color-text-muted: #94a3b8;
   --color-border: #334155;
-  
+
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
   --gradient-secondary: linear-gradient(135deg, #f59e0b 0%, #ec4899 100%);
   --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #6366f1 100%);
-  
+
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', 'Courier New', monospace;
-  
+
   /* Spacing */
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
@@ -40,20 +40,20 @@
   --spacing-xl: 3rem;
   --spacing-2xl: 4rem;
   --spacing-3xl: 6rem;
-  
+
   /* Border Radius */
   --radius-sm: 0.5rem;
   --radius-md: 0.75rem;
   --radius-lg: 1rem;
   --radius-xl: 1.5rem;
-  
+
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
   --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.3);
-  
+
   /* Transitions */
   --transition-fast: 150ms ease;
   --transition-base: 300ms ease;
@@ -234,12 +234,16 @@ body {
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
   }
+
   33% {
     transform: translate(30px, -30px) scale(1.1);
   }
+
   66% {
     transform: translate(-20px, 20px) scale(0.9);
   }
@@ -416,10 +420,13 @@ body {
 }
 
 @keyframes scrollPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.3;
     transform: translateY(0);
   }
+
   50% {
     opacity: 1;
     transform: translateY(10px);
@@ -534,6 +541,14 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: var(--spacing-xl);
+  justify-content: center;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--spacing-lg);
+  justify-content: center;
 }
 
 .project-card {
@@ -745,7 +760,7 @@ body {
   color: var(--color-text);
 }
 
-.contact-info > p {
+.contact-info>p {
   color: var(--color-text-muted);
   line-height: 1.7;
   margin-bottom: var(--spacing-xl);
@@ -894,6 +909,7 @@ body {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -905,6 +921,7 @@ body {
     opacity: 0;
     transform: translateX(30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -919,15 +936,15 @@ body {
     grid-template-columns: 1fr;
     gap: var(--spacing-xl);
   }
-  
+
   .hero-image {
     order: -1;
   }
-  
+
   .image-wrapper {
     max-width: 350px;
   }
-  
+
   .contact-content {
     grid-template-columns: 1fr;
     gap: var(--spacing-xl);
@@ -938,45 +955,57 @@ body {
   .nav-menu {
     display: none;
   }
-  
+
   .mobile-menu-toggle {
     display: flex;
   }
-  
+
   .hero {
-    padding: var(--spacing-2xl) var(--spacing-md);
+    padding: 120px var(--spacing-md) var(--spacing-2xl);
     min-height: auto;
+    text-align: center;
   }
-  
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+  }
+
+  .hero-image {
+    order: -1;
+    margin-top: var(--spacing-md);
+  }
+
   .hero-name {
     font-size: 2.5rem;
   }
-  
+
   .hero-cta {
     flex-direction: column;
   }
-  
+
   .btn {
     width: 100%;
     justify-content: center;
   }
-  
+
   .projects-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .skills-grid {
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
-  
+
   .about-content {
     grid-template-columns: 1fr;
   }
-  
+
   .section-header {
     margin-bottom: var(--spacing-xl);
   }
-  
+
   .footer-content {
     flex-direction: column;
     gap: var(--spacing-md);
@@ -988,19 +1017,19 @@ body {
   .container {
     padding: 0 var(--spacing-md);
   }
-  
+
   .hero-name {
     font-size: 2rem;
   }
-  
+
   .hero-title {
     font-size: 1.25rem;
   }
-  
+
   .image-wrapper {
     max-width: 280px;
   }
-  
+
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }

@@ -1,118 +1,102 @@
 // Mobile Menu Toggle
-const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-const navMenu = document.querySelector('.nav-menu');
+const menuBtn = document.querySelector('.menu-btn');
+const navLinks = document.querySelector('.nav-links');
+const navLinksItems = document.querySelectorAll('.nav-link');
 
-if (mobileMenuToggle) {
-  mobileMenuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    mobileMenuToggle.classList.toggle('active');
-  });
+if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        // Change icon based on state
+        const icon = menuBtn.querySelector('i');
+        if (navLinks.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-xmark');
+        } else {
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        }
+    });
 }
 
-// Close mobile menu when clicking on a link
-const navLinks = document.querySelectorAll('.nav-link');
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    navMenu.classList.remove('active');
-    mobileMenuToggle.classList.remove('active');
-  });
+// Close mobile menu when clicking a link
+navLinksItems.forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        const icon = menuBtn.querySelector('i');
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+    });
 });
 
-// Smooth scroll for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      const offset = 80; // Height of navbar
-      const targetPosition = target.offsetTop - offset;
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
-    }
-  });
-});
-
-// Navbar background on scroll
+// Navbar Glass Effect on Scroll
 const navbar = document.querySelector('.navbar');
-let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
-  const currentScroll = window.pageYOffset;
-  
-  if (currentScroll > 100) {
-    navbar.style.background = 'rgba(15, 23, 42, 0.95)';
-    navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.3)';
-  } else {
-    navbar.style.background = 'rgba(15, 23, 42, 0.8)';
-    navbar.style.boxShadow = 'none';
-  }
-  
-  lastScroll = currentScroll;
+    if (window.scrollY > 50) {
+        navbar.style.background = 'rgba(10, 10, 10, 0.8)';
+        navbar.style.backdropFilter = 'blur(20px)';
+        navbar.style.boxShadow = '0 10px 30px -10px rgba(0,0,0,0.5)';
+    } else {
+        navbar.style.background = 'rgba(255, 255, 255, 0.03)';
+        navbar.style.backdropFilter = 'blur(12px)';
+        navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+    }
 });
 
-// Form submission handler
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const formData = new FormData(contactForm);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const message = formData.get('message');
-    
-    // Here you would typically send the data to a server
-    // For now, we'll just show an alert
-    alert(`Thank you, ${name}! Your message has been received. I'll get back to you at ${email} soon.`);
-    
-    // Reset form
-    contactForm.reset();
-  });
-}
+// Active Link Highlighting
+const sections = document.querySelectorAll('section');
 
-// Intersection Observer for fade-in animations
+window.addEventListener('scroll', () => {
+    let current = '';
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= (sectionTop - 200)) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinksItems.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// Intersection Observer for Animations
 const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-    }
-  });
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
+        }
+    });
 }, observerOptions);
 
-// Observe elements for animation
-const animateElements = document.querySelectorAll('.about-card, .project-card, .skill-card');
-animateElements.forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(30px)';
-  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-  observer.observe(el);
+// Elements to animate
+const animateElements = document.querySelectorAll('.about-card, .project-card, .skill-item, .contact-wrapper');
+
+animateElements.forEach((el, index) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+    el.style.transitionDelay = `${index * 100}ms`; // Stagger effect
+    observer.observe(el);
 });
 
-// Add active state to navigation based on scroll position
-const sections = document.querySelectorAll('section[id]');
-
-window.addEventListener('scroll', () => {
-  const scrollY = window.pageYOffset;
-  
-  sections.forEach(section => {
-    const sectionHeight = section.offsetHeight;
-    const sectionTop = section.offsetTop - 100;
-    const sectionId = section.getAttribute('id');
-    const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-    
-    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-      navLinks.forEach(link => link.classList.remove('active'));
-      if (navLink) {
-        navLink.classList.add('active');
-      }
-    }
-  });
-});
+// Add class for animation via JS
+const styleSheet = document.createElement("style");
+styleSheet.innerText = `
+  .animate-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+`;
+document.head.appendChild(styleSheet);

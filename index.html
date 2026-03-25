@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
   <meta charset="UTF-8" />
@@ -18,7 +18,7 @@
   <meta property="og:url" content="https://nishadaboobaker.online">
   <meta property="og:type" content="website">
 
-  <!-- Twitter Card Meta Tags -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Nishad Aboobaker | Full Stack Developer">
   <meta name="twitter:description"
@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
 
   <!-- Icons -->
@@ -43,365 +43,480 @@
 </head>
 
 <body>
-  <!-- Ambient Background -->
-  <div class="ambient-background">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-    <div class="grid-overlay"></div>
+  <!-- Grain Overlay -->
+  <div class="grain-overlay"></div>
+
+  <!-- Top Marquee Ticker -->
+  <div class="marquee-bar" id="marquee-bar">
+    <div class="marquee-track">
+      <div class="marquee-content">
+        <span>FULL-STACK ENGINEER</span>
+        <span class="sep">///</span>
+        <span>SHIP IN HOURS NOT WEEKS</span>
+        <span class="sep">///</span>
+        <span>MERN &amp; MEAN STACK</span>
+        <span class="sep">///</span>
+        <span>REAL-TIME APPS</span>
+        <span class="sep">///</span>
+        <span>AI-POWERED</span>
+        <span class="sep">///</span>
+        <span>ANTI-BLOAT</span>
+        <span class="sep">///</span>
+        <span>FULL-STACK ENGINEER</span>
+        <span class="sep">///</span>
+        <span>SHIP IN HOURS NOT WEEKS</span>
+        <span class="sep">///</span>
+        <span>MERN &amp; MEAN STACK</span>
+        <span class="sep">///</span>
+        <span>REAL-TIME APPS</span>
+        <span class="sep">///</span>
+        <span>AI-POWERED</span>
+        <span class="sep">///</span>
+        <span>ANTI-BLOAT</span>
+        <span class="sep">///</span>
+      </div>
+    </div>
   </div>
 
-  <!-- Navigation -->
-  <nav class="navbar glass">
-    <div class="container nav-content">
-      <a href="#home" class="logo">
-        <span class="logo-bracket">&lt;</span>
-        Nishad
-        <span class="logo-bracket">/&gt;</span>
-      </a>
-
-      <div class="nav-links">
-        <a href="#home" class="nav-link active">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
-
-      <button class="menu-btn" aria-label="Toggle Menu">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-    </div>
-  </nav>
-
   <main>
-    <!-- Hero Section -->
-    <header id="home" class="hero">
+    <!-- ═══ HERO ═══ -->
+    <section id="home" class="hero">
       <div class="container hero-container">
-        <div class="hero-content">
-          <div class="badge">
-            <span class="badge-dot"></span>
-            Available for hire
-          </div>
-          <h1>
-            Hi, I'm <span class="gradient-text">Nishad</span>
-            <br />
-            <span class="outline-text">Full Stack Dev</span>
-          </h1>
+        <div class="hero-meta">
+          <span class="hero-label">PORTFOLIO / 2026</span>
+        </div>
+        <h1 class="hero-name reveal">
+          NISHAD<br>
+          <span class="hero-name-accent">ABOOBAKER</span>
+        </h1>
+        <div class="hero-bottom reveal-delay-1">
           <p class="hero-bio">
-            Building scalable, high-performance web applications with the
-            <span class="highlight">MEAN</span> & <span class="highlight">MERN</span> stacks.
-            Transforming complex problems into elegant functional solutions.
+            Full-stack mercenary. I build production-ready web apps<br>
+            with the MERN &amp; MEAN stacks — fast, clean, and scalable.
           </p>
           <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary glow-effect">
-              View Work <i class="fa-solid fa-arrow-right"></i>
+            <a href="#contact" class="btn-primary" id="start-project-btn">
+              START A PROJECT <span class="arrow">↗</span>
             </a>
-            <a href="https://docs.google.com/document/d/1FkD85qOsEdykcQddEqBRScES5ZPUoewt/export?format=pdf"
-              class="btn btn-outline" download="Nishad_Aboobaker_Resume.pdf">
-              Download CV <i class="fa-solid fa-download"></i>
-            </a>
-          </div>
-
-          <div class="social-links">
-            <a href="https://github.com/nishad-aboobaker" target="_blank" class="social-icon"
-              aria-label="Visit Nishad Aboobaker's GitHub profile">
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/nishadpp/" target="_blank" class="social-icon"
-              aria-label="Visit Nishad Aboobaker's LinkedIn profile">
-              <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-            <a href="mailto:mail.nishadaboobaker@gmail.com" class="social-icon"
-              aria-label="Send an email to Nishad Aboobaker">
-              <i class="fa-solid fa-envelope"></i>
-            </a>
+            <span class="availability-dot">
+              <span class="dot-pulse"></span> AVAILABLE FOR HIRE
+            </span>
           </div>
         </div>
-
-        <!-- Hero Visual/Decoration -->
-        <div class="hero-visual">
-          <div class="visual-card glass float-animation">
-            <div class="code-snippet">
-              <div class="dots">
-                <span></span><span></span><span></span>
-              </div>
-              <pre><code>const developer = {
-  name: 'Nishad',
-  role: 'Full Stack',
-  skills: ['Angular', 'React', 'Node', 'MongoDB'],
-  isSeekingWork: true
-};</code></pre>
-            </div>
-          </div>
-        </div>
+        <!-- Decorative accents -->
+        <div class="deco-square deco-sq-1"></div>
+        <div class="deco-square deco-sq-2"></div>
       </div>
-    </header>
+    </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-      <div class="container">
-        <div class="section-header center">
-          <span class="tag">About Me</span>
-          <h2>Crafting Digital <span class="gradient-text">Experiences</span></h2>
+    <!-- ═══ STATS / ABOUT ═══ -->
+    <section id="about" class="about reveal">
+      <div class="container about-container">
+        <div class="about-text">
+          <p class="section-label">ABOUT</p>
+          <h2 class="section-title">CRAFTING<br>DIGITAL<br>PRODUCTS</h2>
+          <p class="about-bio">
+            I'm a full-stack developer who loves turning complex problems into
+            elegant, fast, and scalable solutions. From database architecture
+            to pixel-perfect UIs — I own the entire stack.
+          </p>
+          <div class="about-links">
+            <a href="https://github.com/nishad-aboobaker" target="_blank" class="social-mono" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i> GITHUB
+            </a>
+            <a href="https://www.linkedin.com/in/nishadpp/" target="_blank" class="social-mono" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i> LINKEDIN
+            </a>
+          </div>
         </div>
-
-        <div class="about-grid">
-          <div class="about-card glass">
-            <div class="icon-box">
-              <i class="fa-solid fa-layer-group"></i>
-            </div>
-            <h3>Full Stack Development</h3>
-            <p>Proficient in both MEAN and MERN stacks, enabling me to build end-to-end solutions, from database
-              architecture to responsive front-end interfaces.</p>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span class="stat-num">5+</span>
+            <span class="stat-label">PROJECTS<br>SHIPPED</span>
           </div>
-
-          <div class="about-card glass">
-            <div class="icon-box">
-              <i class="fa-solid fa-code"></i>
-            </div>
-            <h3>Clean & Efficient Code</h3>
-            <p>I prioritize writing maintainable, scalable, and well-documented code to ensure long-term project
-              success and seamless collaboration.</p>
+          <div class="stat-box stat-box--accent">
+            <span class="stat-num">2+</span>
+            <span class="stat-label">YEARS<br>EXPERIENCE</span>
           </div>
-
-          <div class="about-card glass">
-            <div class="icon-box">
-              <i class="fa-solid fa-rocket"></i>
-            </div>
-            <h3>Performance Optimization</h3>
-            <p>I build applications that are optimized for speed and efficiency, ensuring a fast and smooth user
-              experience across all devices.</p>
+          <div class="stat-box">
+            <span class="stat-num">2</span>
+            <span class="stat-label">FULL STACKS<br>MASTERED</span>
+          </div>
+          <div class="stat-box stat-box--dark">
+            <span class="stat-num">∞</span>
+            <span class="stat-label">PROBLEMS<br>SOLVED</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- ═══ SELECTED WORK ═══ -->
     <section id="projects" class="projects">
+      <!-- Work Marquee -->
+      <div class="work-marquee">
+        <div class="work-marquee-track">
+          <div class="work-marquee-content">
+            <span>SELECTED WORK</span><span class="sep">///</span>
+            <span>SELECTED WORK</span><span class="sep">///</span>
+            <span>SELECTED WORK</span><span class="sep">///</span>
+            <span>SELECTED WORK</span><span class="sep">///</span>
+            <span>SELECTED WORK</span><span class="sep">///</span>
+            <span>SELECTED WORK</span><span class="sep">///</span>
+          </div>
+        </div>
+      </div>
+
       <div class="container">
-        <div class="section-header">
-          <span class="tag">Portfolio</span>
-          <h2>Featured <span class="gradient-text">Projects</span></h2>
-          <p>A selection of my work, showcasing my skills in web development.</p>
+        <div class="section-header-bare reveal">
+          <p class="section-label">PORTFOLIO</p>
+          <h2 class="section-title">SELECTED<br>WORK</h2>
+          <p class="section-sub">Every project here was shipped to production. Real code solving real problems.</p>
         </div>
 
         <div class="projects-grid">
-          <!-- Shuffle - Morning Session Manager -->
-          <article class="project-card glass">
-            <div class="project-media">
-              <img src="./assets/images/project_shuffle.png" alt="Shuffle - Morning Session Manager" loading="lazy" />
-              <div class="media-overlay">
-                <a href="https://github.com/nishad-aboobaker/shuffle" target="_blank" class="btn-icon"
-                  aria-label="View the Shuffle Morning Session Manager project on GitHub">
-                  <i class="fa-brands fa-github"></i>
-                </a>
+
+          <!-- Shuffle -->
+          <article class="project-card project-card--blue reveal">
+            <div class="project-card-inner">
+              <div class="project-top">
+                <span class="project-category">FULL-STACK / WEB</span>
+                <span class="project-num">001</span>
               </div>
-            </div>
-            <div class="project-info">
-              <h3>Shuffle - Morning Session Manager</h3>
-              <div class="tech-stack">
-                <span>React</span>
-                <span>Node.js</span>
-                <span>MongoDB</span>
-                <span>JWT</span>
+              <h3 class="project-name">SHUFFLE</h3>
+              <p class="project-desc">
+                Morning session manager with automated email notifications and
+                fair round-robin student selection algorithm.
+              </p>
+              <div class="project-tags">
+                <span>REACT</span><span>NODE.JS</span><span>MONGODB</span><span>JWT</span>
               </div>
-              <p>Modern web application for managing morning session activities with automated email notifications and
-                fair round-robin algorithm for student selection.</p>
+              <div class="project-footer">
+                <div class="project-metrics">
+                  <span><strong>Round-Robin</strong><small>ALGORITHM</small></span>
+                  <span><strong>JWT</strong><small>AUTH</small></span>
+                </div>
+                <a href="https://github.com/nishad-aboobaker/shuffle" target="_blank" class="project-arrow"
+                  aria-label="View Shuffle on GitHub">↗</a>
+              </div>
             </div>
           </article>
 
           <!-- Chain Reaction -->
-          <article class="project-card glass">
-            <div class="project-media">
-              <img src="./assets/images/project_chainreaction.png" alt="Chain Reaction - Multiplayer Game"
-                loading="lazy" />
-              <div class="media-overlay">
-                <a href="https://github.com/nishad-aboobaker/chain-reaction" target="_blank" class="btn-icon"
-                  aria-label="View the Chain Reaction Multiplayer Game project on GitHub">
-                  <i class="fa-brands fa-github"></i>
-                </a>
+          <article class="project-card project-card--pink reveal reveal-delay-1">
+            <div class="project-card-inner">
+              <div class="project-top">
+                <span class="project-category">REAL-TIME / GAME</span>
+                <span class="project-num">002</span>
               </div>
-            </div>
-            <div class="project-info">
-              <h3>Chain Reaction - Multiplayer Game</h3>
-              <div class="tech-stack">
-                <span>React</span>
-                <span>TypeScript</span>
-                <span>Socket.IO</span>
-                <span>Redis</span>
+              <h3 class="project-name">CHAIN REACTION</h3>
+              <p class="project-desc">
+                Real-time multiplayer strategic board game supporting 2-8 players
+                with room-based system and smooth explosion animations.
+              </p>
+              <div class="project-tags">
+                <span>REACT</span><span>TYPESCRIPT</span><span>SOCKET.IO</span><span>REDIS</span>
               </div>
-              <p>Real-time multiplayer strategic board game with 2-8 players, featuring smooth explosion animations and
-                room-based system.</p>
+              <div class="project-footer">
+                <div class="project-metrics">
+                  <span><strong>8 Players</strong><small>MAX</small></span>
+                  <span><strong>Real-Time</strong><small>EVENTS</small></span>
+                </div>
+                <a href="https://github.com/nishad-aboobaker/chain-reaction" target="_blank" class="project-arrow"
+                  aria-label="View Chain Reaction on GitHub">↗</a>
+              </div>
             </div>
           </article>
 
           <!-- Degap -->
-          <article class="project-card glass">
-            <div class="project-media">
-              <img src="./assets/images/project_degap.png" alt="Degap - Learning Roadmap Platform" loading="lazy" />
-              <div class="media-overlay">
-                <a href="https://github.com/nishad-aboobaker/degap" target="_blank" class="btn-icon"
-                  aria-label="View the Degap Learning Roadmap Platform project on GitHub">
-                  <i class="fa-brands fa-github"></i>
-                </a>
+          <article class="project-card project-card--orange reveal">
+            <div class="project-card-inner">
+              <div class="project-top">
+                <span class="project-category">FULL-STACK / PLATFORM</span>
+                <span class="project-num">003</span>
               </div>
-            </div>
-            <div class="project-info">
-              <h3>Degap - Learning Roadmap Platform</h3>
-              <div class="tech-stack">
-                <span>React</span>
-                <span>Node.js</span>
-                <span>MongoDB</span>
-                <span>OAuth</span>
+              <h3 class="project-name">DEGAP</h3>
+              <p class="project-desc">
+                Collaborative learning platform for discovering structured learning paths,
+                contributing custom courses, and tracking progress with OAuth.
+              </p>
+              <div class="project-tags">
+                <span>REACT</span><span>NODE.JS</span><span>MONGODB</span><span>OAUTH</span>
               </div>
-              <p>Collaborative learning platform for discovering structured learning paths, contributing custom courses,
-                and tracking progress with OAuth support.</p>
+              <div class="project-footer">
+                <div class="project-metrics">
+                  <span><strong>OAuth</strong><small>AUTH</small></span>
+                  <span><strong>Custom</strong><small>ROADMAPS</small></span>
+                </div>
+                <a href="https://github.com/nishad-aboobaker/degap" target="_blank" class="project-arrow"
+                  aria-label="View Degap on GitHub">↗</a>
+              </div>
             </div>
           </article>
 
           <!-- StepUp -->
-          <article class="project-card glass">
-            <div class="project-media">
-              <img src="./assets/images/project_stepup.png" alt="StepUp - E-commerce Platform" loading="lazy" />
-              <div class="media-overlay">
-                <a href="https://github.com/nishad-aboobaker/stepup-fullstack" target="_blank" class="btn-icon"
-                  aria-label="View the StepUp E-commerce Platform project on GitHub">
-                  <i class="fa-brands fa-github"></i>
-                </a>
+          <article class="project-card project-card--acid reveal reveal-delay-1">
+            <div class="project-card-inner">
+              <div class="project-top">
+                <span class="project-category">FULL-STACK / E-COMMERCE</span>
+                <span class="project-num">004</span>
               </div>
-            </div>
-            <div class="project-info">
-              <h3>StepUp - E-commerce Platform</h3>
-              <div class="tech-stack">
-                <span>Angular</span>
-                <span>TypeScript</span>
-                <span>Node.js</span>
-                <span>MongoDB</span>
+              <h3 class="project-name">STEPUP</h3>
+              <p class="project-desc">
+                Full-stack e-commerce with product management, shopping cart,
+                order processing, and automated PDF invoice generation.
+              </p>
+              <div class="project-tags">
+                <span>ANGULAR</span><span>TYPESCRIPT</span><span>NODE.JS</span><span>MONGODB</span>
               </div>
-              <p>Full-stack e-commerce application with product management, shopping cart, order processing, and PDF
-                invoice generation.</p>
+              <div class="project-footer">
+                <div class="project-metrics">
+                  <span><strong>PDF</strong><small>INVOICES</small></span>
+                  <span><strong>MEAN</strong><small>STACK</small></span>
+                </div>
+                <a href="https://github.com/nishad-aboobaker/stepup-fullstack" target="_blank" class="project-arrow"
+                  aria-label="View StepUp on GitHub">↗</a>
+              </div>
             </div>
           </article>
 
           <!-- VibeConnect -->
-          <article class="project-card glass">
-            <div class="project-media">
-              <img src="./assets/images/project_vibeconnect.png" alt="VibeConnect - Anonymous Video Chat"
-                loading="lazy" />
-              <div class="media-overlay">
-                <a href="https://vibeconnect-lemon.vercel.app" target="_blank" class="btn-icon"
-                  aria-label="Visit the VibeConnect live demo">
-                  <i class="fa-solid fa-up-right-from-square"></i>
-                </a>
+          <article class="project-card project-card--dark reveal">
+            <div class="project-card-inner">
+              <div class="project-top">
+                <span class="project-category">REAL-TIME / WEB</span>
+                <span class="project-num">005</span>
               </div>
-            </div>
-            <div class="project-info">
-              <h3>VibeConnect - Anonymous Video Chat</h3>
-              <div class="tech-stack">
-                <span>Node.js</span>
-                <span>WebSockets</span>
-                <span>Express</span>
+              <h3 class="project-name">VIBECONNECT</h3>
+              <p class="project-desc">
+                Real-time anonymous video chat platform with WebSocket-based
+                architecture for seamless peer-to-peer communication.
+              </p>
+              <div class="project-tags">
+                <span>NODE.JS</span><span>WEBSOCKETS</span><span>EXPRESS</span>
               </div>
-              <p>Real-time anonymous video chat platform with WebSocket-based architecture for seamless peer-to-peer
-                communication.</p>
+              <div class="project-footer">
+                <div class="project-metrics">
+                  <span><strong>P2P</strong><small>VIDEO</small></span>
+                  <span><strong>Anon</strong><small>CHAT</small></span>
+                </div>
+                <a href="https://vibeconnect-lemon.vercel.app" target="_blank" class="project-arrow"
+                  aria-label="Visit VibeConnect live demo">↗</a>
+              </div>
             </div>
           </article>
+
         </div>
       </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-      <div class="container">
-        <div class="section-header center">
-          <span class="tag">Expertise</span>
-          <h2>Tech <span class="gradient-text">Stack</span></h2>
+    <!-- ═══ PHILOSOPHY ═══ -->
+    <section class="philosophy reveal">
+      <div class="container philosophy-container">
+        <div class="philosophy-left">
+          <p class="section-label">PHILOSOPHY</p>
+          <h2 class="philosophy-title">
+            ANTI-BLOAT.<br>
+            <span class="philosophy-accent">PRO-SPEED.</span>
+          </h2>
+          <p class="philosophy-body">
+            I hate inefficiency the way most people hate bugs.
+            While others spend weeks on slide decks, I'm already
+            shipping. Clean code, fast deploys, real results.
+          </p>
         </div>
-
-        <div class="skills-wrapper">
-          <div class="skill-item glass">
-            <i class="fa-brands fa-html5" style="color: #E34F26;"></i>
-            <span>HTML5</span>
+        <div class="philosophy-right">
+          <div class="process-item">
+            <span class="process-num">01</span>
+            <div>
+              <strong>UNDERSTAND</strong>
+              <p>Deep-dive into the problem. No assumptions, no shortcuts on clarity.</p>
+            </div>
           </div>
-          <div class="skill-item glass">
-            <i class="fa-brands fa-css3-alt" style="color: #1572B6;"></i>
-            <span>CSS3</span>
+          <div class="process-item">
+            <span class="process-num">02</span>
+            <div>
+              <strong>BUILD</strong>
+              <p>Heads-down engineering. Real commits, not slide decks.</p>
+            </div>
           </div>
-          <div class="skill-item glass">
-            <i class="fa-brands fa-js" style="color: #F7DF1E;"></i>
-            <span>JavaScript</span>
+          <div class="process-item">
+            <span class="process-num">03</span>
+            <div>
+              <strong>SHIP</strong>
+              <p>Production deployment. Real users, real feedback.</p>
+            </div>
           </div>
-          <div class="skill-item glass">
-            <i class="fa-brands fa-angular" style="color: #DD0031;"></i>
-            <span>Angular</span>
-          </div>
-          <div class="skill-item glass">
-            <i class="fa-brands fa-react" style="color: #61DAFB;"></i>
-            <span>React</span>
-          </div>
-          <div class="skill-item glass">
-            <i class="fa-brands fa-node-js" style="color: #339933;"></i>
-            <span>Node.js</span>
-          </div>
-          <div class="skill-item glass">
-            <i class="fa-solid fa-database" style="color: #47A248;"></i>
-            <span>MongoDB</span>
-          </div>
-          <div class="skill-item glass">
-            <i class="fa-solid fa-server" style="color: #000000;"></i>
-            <span>Express</span>
-          </div>
-          <div class="skill-item glass">
-            <i class="fa-brands fa-bootstrap" style="color: #7952B3;"></i>
-            <span>Bootstrap</span>
+          <div class="process-item">
+            <span class="process-num">04</span>
+            <div>
+              <strong>ITERATE</strong>
+              <p>Refine based on data. Always improving, never done.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <!-- ═══ THE ARSENAL (SKILLS) ═══ -->
+    <section id="skills" class="arsenal">
       <div class="container">
-        <div class="contact-wrapper glass">
-          <div class="contact-content">
-            <span class="tag">Get in touch</span>
-            <h2>Let's build something <br /><span class="gradient-text">great together</span></h2>
-            <p>I'm always open to discussing new projects, creative ideas, or opportunities to collaborate.</p>
+        <div class="arsenal-header reveal">
+          <p class="section-label">TECH STACK</p>
+          <h2 class="section-title">THE<br>ARSENAL</h2>
+          <p class="section-sub">I don't pick tools because they're trendy. I pick them because they ship.</p>
+        </div>
 
-            <div class="contact-methods">
-              <a href="mailto:mail.nishadaboobaker@gmail.com" class="method-item">
-                <div class="icon-circle"><i class="fa-solid fa-envelope"></i></div>
-                <div>
-                  <label>Email</label>
-                  <span>mail.nishadaboobaker@gmail.com</span>
-                </div>
-              </a>
-              <a href="tel:+919895321914" class="method-item">
-                <div class="icon-circle"><i class="fa-solid fa-phone"></i></div>
-                <div>
-                  <label>Phone</label>
-                  <span>+91 9895321914</span>
-                </div>
-              </a>
+        <div class="arsenal-grid">
+          <!-- Frontend -->
+          <div class="arsenal-card arsenal-card--acid reveal">
+            <div class="arsenal-card-header">
+              <h3>FRONTEND</h3>
+              <span class="tool-count">5 TOOLS</span>
+            </div>
+            <div class="skill-list">
+              <div class="skill-row">
+                <span class="skill-name">REACT / NEXT.JS</span>
+                <span class="skill-pct">90%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+              <div class="skill-row">
+                <span class="skill-name">ANGULAR</span>
+                <span class="skill-pct">85%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+              <div class="skill-row">
+                <span class="skill-name">TYPESCRIPT</span>
+                <span class="skill-pct">85%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+              <div class="skill-row">
+                <span class="skill-name">HTML5 / CSS3</span>
+                <span class="skill-pct">95%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+              <div class="skill-row">
+                <span class="skill-name">JAVASCRIPT</span>
+                <span class="skill-pct">90%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
             </div>
           </div>
 
+          <!-- Backend -->
+          <div class="arsenal-card arsenal-card--dark reveal reveal-delay-1">
+            <div class="arsenal-card-header">
+              <h3>BACKEND</h3>
+              <span class="tool-count">4 TOOLS</span>
+            </div>
+            <div class="skill-list">
+              <div class="skill-row">
+                <span class="skill-name">NODE.JS</span>
+                <span class="skill-pct">88%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+              <div class="skill-row">
+                <span class="skill-name">EXPRESS.JS</span>
+                <span class="skill-pct">88%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+              <div class="skill-row">
+                <span class="skill-name">MONGODB</span>
+                <span class="skill-pct">85%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+              <div class="skill-row">
+                <span class="skill-name">REST APIs</span>
+                <span class="skill-pct">92%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+            </div>
+          </div>
+
+          <!-- Tools & DevOps -->
+          <div class="arsenal-card arsenal-card--outline reveal">
+            <div class="arsenal-card-header">
+              <h3>TOOLS &amp; MORE</h3>
+              <span class="tool-count">5 TOOLS</span>
+            </div>
+            <div class="skill-list">
+              <div class="skill-row">
+                <span class="skill-name">SOCKET.IO</span>
+                <span class="skill-pct">80%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+              <div class="skill-row">
+                <span class="skill-name">GIT / GITHUB</span>
+                <span class="skill-pct">90%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+              <div class="skill-row">
+                <span class="skill-name">REDIS</span>
+                <span class="skill-pct">75%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+              <div class="skill-row">
+                <span class="skill-name">DOCKER</span>
+                <span class="skill-pct">70%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+              <div class="skill-row">
+                <span class="skill-name">WEBRTC</span>
+                <span class="skill-pct">78%</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CONTACT ═══ -->
+    <section id="contact" class="contact reveal">
+      <div class="container contact-container">
+        <div class="contact-left">
+          <p class="section-label">GET IN TOUCH</p>
+          <h2 class="section-title">LET'S<br>BUILD<br>TOGETHER</h2>
+          <p class="contact-bio">
+            I'm always open to new projects, creative ideas,
+            or opportunities to make something great.
+          </p>
+          <div class="contact-methods">
+            <a href="mailto:mail.nishadaboobaker@gmail.com" class="contact-method">
+              <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <label>EMAIL</label>
+                <span>mail.nishadaboobaker@gmail.com</span>
+              </div>
+            </a>
+            <a href="tel:+919895321914" class="contact-method">
+              <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <label>PHONE</label>
+                <span>+91 9895321914</span>
+              </div>
+            </a>
+          </div>
+          <a href="https://docs.google.com/document/d/1FkD85qOsEdykcQddEqBRScES5ZPUoewt/export?format=pdf"
+            class="cv-download" download="Nishad_Aboobaker_Resume.pdf">
+            DOWNLOAD CV <span class="arrow">↓</span>
+          </a>
+        </div>
+        <div class="contact-right">
           <form class="contact-form" action="https://formspree.io/f/mnjnegeo" method="POST">
             <div class="form-group">
-              <input type="text" id="name" name="name" required placeholder="Your Name" />
-              <label for="name">Your Name</label>
+              <label for="name">YOUR NAME</label>
+              <input type="text" id="name" name="name" required placeholder="John Doe" />
             </div>
             <div class="form-group">
-              <input type="email" id="email" name="email" required placeholder="Email Address" />
-              <label for="email">Email Address</label>
+              <label for="email">EMAIL ADDRESS</label>
+              <input type="email" id="email" name="email" required placeholder="john@example.com" />
             </div>
             <div class="form-group">
-              <textarea id="message" name="message" rows="4" required placeholder="Your Message"></textarea>
-              <label for="message">Your Message</label>
+              <label for="message">YOUR MESSAGE</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
             </div>
-            <button type="submit" class="btn btn-primary glow-effect">
-              Send Message <i class="fa-solid fa-paper-plane"></i>
+            <button type="submit" class="btn-primary btn-full" id="send-btn">
+              SEND MESSAGE <span class="arrow">↗</span>
             </button>
           </form>
         </div>
@@ -409,15 +524,40 @@
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container footer-content">
-      <div class="footer-logo">Nishad<span>.dev</span></div>
-      <div class="copyright">
-        &copy; 2026 Nishad Aboobaker. All rights reserved.
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">NISHAD<span>.DEV</span></div>
+      <div class="footer-copy">© 2026 NISHAD ABOOBAKER. ALL RIGHTS RESERVED.</div>
+      <div class="footer-socials">
+        <a href="https://github.com/nishad-aboobaker" target="_blank" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/nishadpp/" target="_blank" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="mailto:mail.nishadaboobaker@gmail.com" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
       </div>
     </div>
   </footer>
+
+  <!-- ═══ BOTTOM NAV ═══ -->
+  <nav class="bottom-nav" id="bottom-nav">
+    <a href="#home" class="nav-item active" data-section="home">HOME</a>
+    <a href="#projects" class="nav-item" data-section="projects">PROJECTS</a>
+    <a href="#skills" class="nav-item" data-section="skills">SKILLS</a>
+    <a href="#contact" class="nav-item" data-section="contact">CONTACT</a>
+    <button class="nav-dark-toggle" id="dark-toggle" aria-label="Toggle dark mode">
+      <span class="moon-icon">☽</span> DARK
+    </button>
+    <a href="https://docs.google.com/document/d/1FkD85qOsEdykcQddEqBRScES5ZPUoewt/export?format=pdf"
+      class="nav-cv" download="Nishad_Aboobaker_Resume.pdf" aria-label="Download CV">
+      CV ↓
+    </a>
+    <a href="#contact" class="nav-cta">LET'S TALK</a>
+  </nav>
 
   <script src="./js/main.js"></script>
 </body>

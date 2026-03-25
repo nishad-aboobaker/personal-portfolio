@@ -1,102 +1,169 @@
-// Mobile Menu Toggle
-const menuBtn = document.querySelector('.menu-btn');
-const navLinks = document.querySelector('.nav-links');
-const navLinksItems = document.querySelectorAll('.nav-link');
+/* ═══════════════════════════════════════════════════
+   NISHAD ABOOBAKER — PORTFOLIO JS
+   ═══════════════════════════════════════════════════ */
 
-if (menuBtn) {
-    menuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        // Change icon based on state
-        const icon = menuBtn.querySelector('i');
-        if (navLinks.classList.contains('active')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-xmark');
-        } else {
-            icon.classList.remove('fa-xmark');
-            icon.classList.add('fa-bars');
-        }
-    });
+'use strict';
+
+// ── 1. DARK MODE ──────────────────────────────────────
+const html = document.documentElement;
+const darkToggle = document.getElementById('dark-toggle');
+
+// Restore saved preference
+const savedTheme = localStorage.getItem('theme') || 'light';
+html.setAttribute('data-theme', savedTheme);
+updateDarkLabel(savedTheme);
+
+darkToggle?.addEventListener('click', () => {
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  updateDarkLabel(next);
+});
+
+function updateDarkLabel(theme) {
+  if (!darkToggle) return;
+  darkToggle.innerHTML = theme === 'dark'
+    ? '<span class="moon-icon">☀</span> LIGHT'
+    : '<span class="moon-icon">☽</span> DARK';
 }
 
-// Close mobile menu when clicking a link
-navLinksItems.forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        const icon = menuBtn.querySelector('i');
-        icon.classList.remove('fa-xmark');
-        icon.classList.add('fa-bars');
-    });
-});
+// ── 2. SCROLL REVEAL ──────────────────────────────────
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
 
-// Navbar Glass Effect on Scroll
-const navbar = document.querySelector('.navbar');
+      // Trigger skill bars if inside arsenal
+      const fills = entry.target.querySelectorAll('.skill-fill');
+      fills.forEach(fill => {
+        const target = fill.getAttribute('data-width');
+        if (target) fill.style.width = target + '%';
+      });
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(10, 10, 10, 0.8)';
-        navbar.style.backdropFilter = 'blur(20px)';
-        navbar.style.boxShadow = '0 10px 30px -10px rgba(0,0,0,0.5)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.03)';
-        navbar.style.backdropFilter = 'blur(12px)';
-        navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+      revealObserver.unobserve(entry.target);
     }
+  });
+  // FIX: was { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+  // On mobile, tall elements never reached 12% visibility + -40px margin,
+  // leaving them stuck at opacity:0 and creating large empty gaps.
+}, { threshold: 0, rootMargin: '0px 0px 0px 0px' });
+
+// Also observe arsenal cards specifically for skill bars
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const fills = entry.target.querySelectorAll('.skill-fill');
+      fills.forEach((fill, i) => {
+        const target = fill.getAttribute('data-width');
+        if (target) {
+          setTimeout(() => { fill.style.width = target + '%'; }, i * 120);
+        }
+      });
+      skillObserver.unobserve(entry.target);
+    }
+  });
+  // FIX: was threshold: 0.2 — too high on mobile, bars never animated
+}, { threshold: 0 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+document.querySelectorAll('.arsenal-card').forEach(el => skillObserver.observe(el));
+
+// ── 3. ACTIVE NAV LINK ON SCROLL ─────────────────────
+const sections = document.querySelectorAll('section[id], header[id]');
+const navItems = document.querySelectorAll('.bottom-nav .nav-item');
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('data-section') === entry.target.id) {
+          item.classList.add('active');
+        }
+      });
+    }
+  });
+}, { threshold: 0.4 });
+
+sections.forEach(section => sectionObserver.observe(section));
+
+// ── 4. SMOOTH SCROLL FOR NAV LINKS ───────────────────
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', (e) => {
+    const target = document.querySelector(anchor.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      // Offset for bottom nav height (100px on mobile, 56px on desktop)
+      const isMobile = window.innerWidth <= 768;
+      const offset = isMobile ? 100 : 56;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
 });
 
-// Active Link Highlighting
-const sections = document.querySelectorAll('section');
+// ── 5. CONTACT FORM FEEDBACK ─────────────────────────
+const form = document.querySelector('.contact-form');
+const sendBtn = document.getElementById('send-btn');
 
-window.addEventListener('scroll', () => {
-    let current = '';
+form?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  sendBtn.textContent = 'SENDING...';
+  sendBtn.disabled = true;
 
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
     });
 
-    navLinksItems.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
-            link.classList.add('active');
-        }
-    });
-});
-
-// Intersection Observer for Animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-// Elements to animate
-const animateElements = document.querySelectorAll('.about-card, .project-card, .skill-item, .contact-wrapper');
-
-animateElements.forEach((el, index) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-    el.style.transitionDelay = `${index * 100}ms`; // Stagger effect
-    observer.observe(el);
-});
-
-// Add class for animation via JS
-const styleSheet = document.createElement("style");
-styleSheet.innerText = `
-  .animate-in {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
+    if (res.ok) {
+      sendBtn.innerHTML = 'SENT ✓';
+      sendBtn.style.background = '#22C55E';
+      form.reset();
+      setTimeout(() => {
+        sendBtn.innerHTML = 'SEND MESSAGE <span class="arrow">↗</span>';
+        sendBtn.style.background = '';
+        sendBtn.disabled = false;
+      }, 3500);
+    } else {
+      throw new Error('Network response was not ok');
+    }
+  } catch {
+    sendBtn.innerHTML = 'FAILED — TRY AGAIN';
+    sendBtn.style.background = '#FF006B';
+    sendBtn.disabled = false;
+    setTimeout(() => {
+      sendBtn.innerHTML = 'SEND MESSAGE <span class="arrow">↗</span>';
+      sendBtn.style.background = '';
+    }, 3000);
   }
-`;
-document.head.appendChild(styleSheet);
+});
+
+// ── 6. PROJECT CARD CLICK (open link) ────────────────
+document.querySelectorAll('.project-card').forEach(card => {
+  card.addEventListener('click', (e) => {
+    if (e.target.closest('.project-arrow')) return; // let link handle it
+    const link = card.querySelector('.project-arrow');
+    if (link) window.open(link.href, '_blank');
+  });
+});
+
+// ── 7. HERO NAME LETTER ANIMATION ────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+  // Trigger CSS reveals on load for hero
+  setTimeout(() => {
+    document.querySelectorAll('.hero .reveal').forEach(el => {
+      el.classList.add('visible');
+    });
+  }, 100);
+
+  // Stagger hero-bottom
+  setTimeout(() => {
+    document.querySelectorAll('.hero .reveal-delay-1').forEach(el => {
+      el.classList.add('visible');
+    });
+  }, 350);
+});
